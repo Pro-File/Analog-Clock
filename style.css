@@ -1,0 +1,170 @@
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+:root{
+    --para-font :  'Kalam', cursive;
+    --regular : 400;
+    --bold : 700;
+}
+.container{
+    display: grid;
+    grid-template-rows: 90vh 10vh 140vh;
+    grid-template-areas:"page-1"
+                        "page-2"
+                        "page-3";
+    /* grid-template-columns: minmax(1rem, 1fr) minmax(min-content, 1100px) minmax(1rem, 1fr);
+    grid-template-areas: " . main . "; */
+    background: #fad390;
+}
+.page-1{
+        display: grid;
+        grid-template-columns: minmax(1rem, 1fr) minmax(min-content, 1100px) minmax(1rem, 1fr);
+        grid-template-areas: " . main-clock . "; 
+}
+
+.main-clock{
+    /* background: salmon; */
+}
+.child{
+    width: 100%;
+    height: 80%;
+    /* background: sandybrown; */
+}
+.main-circle{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid White;
+    box-shadow: 2px 4px 10px 3px black;
+    background: transparent;
+}
+.child>h1{
+    position: absolute;
+    top: 43%;
+    left: 53%;
+    font-size: 1.4rem;
+    font-weight: var(--regular);
+    font-family: var(--para-font);
+    color: #ffff;
+    z-index: 2;
+}
+.main-circle-face,.child-1-circle-face,.child-2-circle-face,.child-3-circle-face{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: black;
+    /* account for the height of the clock hands */
+}
+.hand{
+    width: 50%;
+    height: 3px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.5s forwards;
+    transition-timing-function: cubic-bezier(0.1, 3, 0.5, 1);
+}
+/* .child-1-min,.child-2-min,.child-3-min{
+    background: red;
+} */
+.sec-hand,.child-1-sec,.child-2-sec,.child-3-sec{
+    background: rgba(59, 59, 231, 0.65);
+}
+.page-2{
+    /* background: cyan; */
+}
+.page-3{
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) minmax(min-content, 1100px) minmax(1rem, 1fr);
+    grid-template-areas: " . sub-clocks . "; 
+}
+.sub-clocks{
+    /* background: sandybrown; */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+
+}
+.clock{
+    width: 100%;
+    height: 50%;
+    position: relative;
+    left: 0%;
+    /* background-color: rgba(66, 66, 66, 0.103);
+    border: 2px solid black; */
+    flex-flow: column;
+}
+.child-1,.child-2,.child-3{
+    width: 80%;
+    height: 100%;
+    flex-flow: column;
+    /* background: cadetblue; */
+}
+.child-1>h1,.child-2>h1,.child-3>h1{
+    font-size: 3rem;
+    font-family: var(--para-font);
+    font-weight: var(--bold);
+    padding: 1rem 1rem;
+}
+.clock-1-circle,.clock-2-circle,.clock-3-circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid White;
+    background: transparent;
+    box-shadow: 2px 4px 10px 3px black;
+}
+@media only screen and (max-width: 650px){
+    .child>h1{
+        position: absolute;
+        top: 47.5%;
+        left: 56%;
+        font-size: 1.4rem;
+        font-family: var(--para-font);
+        font-weight: var(--regular);
+        color: #ffff;
+    }
+}
+@media only screen and (max-width: 350px){
+    .main-circle{
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 10px solid White;
+        box-shadow: none;
+        background: transparent;
+    }
+    .child>h1{
+        position: absolute;
+        top: 49%;
+        left: 55%;
+        font-size: 1.2rem;
+        font-family: var(--para-font);
+        font-weight: var(--regular);
+        color: #ffff;
+    }
+    .clock-1-circle,.clock-2-circle,.clock-3-circle{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid White;
+        background: transparent;
+        box-shadow: none;
+    }
+}
